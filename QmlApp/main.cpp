@@ -7,8 +7,10 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     QGuiApplication app(argc, argv);
-
+    Q_INIT_RESOURCE(qml);
     QQmlApplicationEngine engine;
+    //engine.addImportPath("./imports");
+    //engine.addImportPath("qrc:/resource");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(
         &engine,
@@ -19,6 +21,7 @@ int main(int argc, char *argv[])
                 QCoreApplication::exit(-1);
         },
         Qt::QueuedConnection);
+
     engine.load(url);
 
     return app.exec();

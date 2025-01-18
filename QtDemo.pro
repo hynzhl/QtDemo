@@ -1,6 +1,8 @@
 TEMPLATE = subdirs
 
+CONFIG += ordered
 SUBDIRS += \
+    QmlPlugin \
+    QtPluginExample \
     QWidgetApp \
-    QmlApp \
-    QtPluginExample
+    QmlApp
