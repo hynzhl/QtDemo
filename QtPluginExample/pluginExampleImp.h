@@ -1,7 +1,7 @@
 #ifndef PLUGINEXAMPLEIMP_H
 #define PLUGINEXAMPLEIMP_H
 
-//Step3:创建插件实现功能类
+//Step3:创建插件实现功能类，继承QtPluginInterface类，如果想用信号-槽机智，要再继承QObject类
 #include "QtPluginExample_global.h"
 #include "qtplugininterface.h"
 #include <QObject>

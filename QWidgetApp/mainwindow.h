@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QPluginLoader>
 #include <QWidget>
+#include <QPointer>
+
+class SpdLogManager;
 QT_BEGIN_NAMESPACE
 
 QT_END_NAMESPACE
@@ -24,7 +27,11 @@ private slots:
     void onUnloadPluginBtnclicked();
 
 private:
+    void initLogMgrModule();
+private:
     QWidget* m_pCentralWidget;
     QPluginLoader m_pluginLoader;
+    //日志库
+    QPointer<SpdLogManager> m_pLogMgr;
 };
 #endif // MAINWINDOW_H

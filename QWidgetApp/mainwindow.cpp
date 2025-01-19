@@ -6,10 +6,12 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include "mgr/Spdlogmanager.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
+    , m_pLogMgr(nullptr)
 {
     setWindowFlags(Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
     resize(800, 600);
@@ -38,7 +40,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::initialize()
 {
-
+    initLogMgrModule();
 
 }
 
@@ -82,5 +84,14 @@ void MainWindow::onUnloadPluginBtnclicked()
     {
         qDebug()<<"unload dll failure!"<<m_pluginLoader.errorString();
     }
+}
+
+void MainWindow::initLogMgrModule()
+{
+    if(!m_pLogMgr)
+    {
+        m_pLogMgr = new SpdLogManager(this);
+    }
+    m_pLogMgr->initialize();
 }
 

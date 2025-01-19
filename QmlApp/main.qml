@@ -9,12 +9,38 @@ Window {
     height: 480
     visible: true
     title: qsTr("QML App")
-
-
-
-    TestQmlPluginControl{
+    Rectangle{
         anchors.fill: parent
-
+        border.width: 2;
+        border.color: "blue"
     }
+
+    Column{
+        spacing: 10
+        anchors.fill: parent
+        Row{
+            id:row
+            spacing: 20
+            anchors.horizontalCenter:parent.horizontalCenter
+            Button{
+                id:crashBtn
+                text: qsTr("crash测试")
+                anchors.verticalCenter: parent.verticalCenter
+                width:100
+                height:40
+            }
+        }
+
+        TestQmlPluginControl{
+            width: wnd.width
+            height:wnd.height -  60
+            anchors.horizontalCenter:parent.horizontalCenter
+
+        }
+    }
+
+
+
+
 
 }

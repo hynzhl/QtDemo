@@ -2,9 +2,11 @@ import QtQuick 2.15
 import FluentUI 1.0
 
 
-Item{
-
+Rectangle{
+    border.color: "red"
+    border.width: 1;
     Row{
+        anchors.fill: parent
         spacing: 10
         TextButton{
             width:100;
