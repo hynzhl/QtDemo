@@ -2,7 +2,7 @@
 #include <cstdio>
 #include <chrono>
 #include <QDebug>
-
+#include "spdlog/spdlog.h"
 //#include "spdlog/pattern_formatter-inl.h"
 
 //#include "spdlog/cfg/env.h"   // support for loading levels from the environment variable

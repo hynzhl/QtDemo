@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>resource/icon.jpg</file>
         <file>qml/TestQmlPluginControl.qml</file>
+        <file>qml/PlotPanelExample.qml</file>
     </qresource>
 </RCC>

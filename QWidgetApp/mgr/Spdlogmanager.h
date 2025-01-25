@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <memory>
-#include "spdlog/spdlog.h"
+
 class logger;
 
 class SpdLogManager : public QObject
@@ -23,10 +23,6 @@ private:
     //static std::shared_ptr<logger> m_pFileLogger;
 };
 
-#define XYLOG_LOGGER_INFO(logger, ...) \
-        SPDLOG_LOGGER_INFO(SpdLogManager::defaultLogger(), __VA_ARGS__)
-
-#define XYLOG_INFO(...) XYLOG_LOGGER_INFO(spdlog::default_logger_raw(), __VA_ARGS__)
 
 
 #endif // SPDLOGMANAGER_H
