@@ -4,5 +4,6 @@
         <file>resource/icon.jpg</file>
         <file>qml/TestQmlPluginControl.qml</file>
         <file>qml/PlotPanelExample.qml</file>
+        <file>qml/FluentChartExample.qml</file>
     </qresource>
 </RCC>

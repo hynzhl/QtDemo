@@ -8,6 +8,15 @@ Window {
     height: 480
     visible: true
     title: qsTr("QML App")
+
+    enum EPageViewType{
+        PageUIPluginView = 0,
+        PageChartView,
+        PageFluentChartView,
+        PageUndefinedView
+    }
+    //0：plugin 1 chatview  2 fluentChart
+    property int ePageViewType: 0
     Rectangle{
         anchors.fill: parent
         border.width: 1;
@@ -31,7 +40,7 @@ Window {
                 width:100
                 height:40
                 onClicked: {
-                    testUIPluginView.visible = !testUIPluginView.visible;
+                    ePageViewType = 0;
                 }
             }
             Button{
@@ -41,7 +50,17 @@ Window {
                 width:100
                 height:40
                 onClicked: {
-                    plotView.visible = !plotView.visible;
+                    ePageViewType = 1;
+                }
+            }
+            Button{
+                id:fluentChartViewBtn
+                text: qsTr("fluentChartView")
+                anchors.verticalCenter: parent.verticalCenter
+                width:100
+                height:40
+                onClicked: {
+                    ePageViewType = 2;
                 }
             }
         }
@@ -54,7 +73,7 @@ Window {
         anchors.top: btnsItem.bottom
         anchors.bottom: parent.bottom
         width: parent.width
-
+        visible:ePageViewType === 0
     }
 
 
@@ -63,11 +82,16 @@ Window {
         anchors.top: btnsItem.bottom
         anchors.bottom: parent.bottom
         width: parent.width
+        visible:ePageViewType === 1
     }
 
-
-
-
+    FluentChartExample{
+        id:fluentChartView
+        anchors.top: btnsItem.bottom
+        anchors.bottom: parent.bottom
+        width: parent.width
+        visible:ePageViewType === 2
+    }
 
 
 

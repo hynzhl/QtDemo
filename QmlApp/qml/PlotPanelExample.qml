@@ -76,6 +76,7 @@ Rectangle{
         width: parent.width
         height:60
         Row{
+            anchors.centerIn: parent
             spacing: 20
             Button{
                 id:startBtn

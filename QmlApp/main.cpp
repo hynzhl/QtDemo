@@ -1,6 +1,7 @@
 //#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QApplication>
+#include "qml/fluentChart/fluentchartview.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +11,8 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     //QGuiApplication app(argc, argv);
     Q_INIT_RESOURCE(qml);
+
+    qmlRegisterType<FluentChartView>("FluentChart", 1, 0, "FluentChartView");
     QQmlApplicationEngine engine;
     //engine.addImportPath("./imports");
     //engine.addImportPath("qrc:/resource");

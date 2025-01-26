@@ -6,7 +6,7 @@ Rectangle{
     border.color: "red"
     border.width: 1;
     Row{
-        anchors.fill: parent
+        anchors.centerIn: parent
         spacing: 10
         TextButton{
             width:100;
