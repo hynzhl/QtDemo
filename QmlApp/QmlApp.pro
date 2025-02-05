@@ -6,6 +6,7 @@ QT += quick  charts
 
 SOURCES += \
         main.cpp \
+        qml/fluentChart/fluentchartarea.cpp \
         qml/fluentChart/fluentchartlinenode.cpp \
         qml/fluentChart/fluentchartnode.cpp \
         qml/fluentChart/fluentchartview.cpp
@@ -30,6 +31,7 @@ message($${QML_IMPORT_PATH})
 DISTFILES +=
 
 HEADERS += \
+    qml/fluentChart/fluentchartarea.h \
     qml/fluentChart/fluentchartlinenode.h \
     qml/fluentChart/fluentchartnode.h \
     qml/fluentChart/fluentchartview.h

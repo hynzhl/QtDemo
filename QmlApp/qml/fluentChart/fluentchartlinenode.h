@@ -6,6 +6,8 @@
 #include <QColor>
 #include <QList>
 #include <QPointF>
+#include <QSGGeometry>
+#include <QSGFlatColorMaterial>
 
 class QSGGeometry;
 class QSGFlatColorMaterial;
@@ -17,10 +19,14 @@ public:
     void setLineColor(const QColor& clr);
     void setLineWidth(int w);
     //
-    void updateGeometry(const QRectF& rc, const QList<QPointF> &samples,  qreal ymax,  qreal ymin);
+    void updateGeometry(const QRectF& rc, const QList<QPointF> &samples
+                        ,  qreal ymax,  qreal ymin
+                        , qreal xMax, qreal xMin);
 private:
-    QSharedPointer<QSGGeometry> m_pGeometry;
-    QSharedPointer<QSGFlatColorMaterial> m_pColorMaterial;
+    QSGGeometry m_pGeometry;
+    //QSharedPointer<QSGGeometry> m_pGeometry;  不能用智能指针
+    //QSharedPointer<QSGFlatColorMaterial> m_pColorMaterial;
+    QSGFlatColorMaterial m_pColorMaterial;
 
     QColor m_clrLine;
     int m_iLineWidth;

@@ -34,7 +34,7 @@ Rectangle{
             priObj.curTimePoint += priObj.updateInterval/1000.0;//转换成秒
 
             var pt = Qt.point(priObj.curTimePoint, getRandomNum());
-            //console.log("x:",pt.x, "; y:", pt.y)
+            console.log("x:",pt.x, "; y:", pt.y)
             chartView.append(pt.x, pt.y);
         }
 
@@ -102,6 +102,7 @@ Rectangle{
         //legend属性
         Component.onCompleted: {
             console.log("chartView:", chartView);
+            chartView.updateAxesRange(30, 0, priObj.yMax, priObj.yMin);
         }
 
     }
