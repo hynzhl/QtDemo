@@ -9,6 +9,9 @@ FluentChartView::FluentChartView(QQuickItem *parent)
 {
     setFlag(QQuickItem::ItemHasContents, true);
     setSmooth(true);
+
+    connect(this, &QQuickItem::widthChanged, this, &FluentChartView::handleWidthChanged);
+    connect(this, &QQuickItem::heightChanged, this, &FluentChartView::handleHeightChanged);
 }
 
 void FluentChartView::append(qreal x, qreal y)
@@ -76,4 +79,14 @@ QList<QPointF> FluentChartView::samplesData()
     }
     else
         return m_lstAllSamplesData;
+}
+
+void FluentChartView::handleWidthChanged()
+{
+    update();
+}
+
+void FluentChartView::handleHeightChanged()
+{
+    update();
 }

@@ -4,19 +4,25 @@
 #include <QSGGeometryNode>
 #include <QSGGeometry>
 #include <QSGFlatColorMaterial>
+#include <QSGSimpleRectNode>
 #include <QRectF>
+#include <QSGOpacityNode>
 
 /*一个方形图线区域*/
-class FluentChartArea : public QSGGeometryNode
+class FluentChartArea : public QSGOpacityNode
 {
 public:
     FluentChartArea();
 
     void updateGeometry(const QRectF& rcFrame);
 private:
-    QSGGeometry m_geometry;
-    QSGFlatColorMaterial m_pColorMaterial;
-
+    //
+    QSGSimpleRectNode m_fill;
+    //
+    QSGGeometryNode m_gridLine;
+    QSGGeometry m_geoGrid;
+    QSGFlatColorMaterial m_pGridColorMaterial;
+    //
 };
 
 

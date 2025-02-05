@@ -33,6 +33,9 @@ protected:
 
     bool needRemove();
     QList<QPointF> samplesData();
+protected slots:
+    void handleWidthChanged();
+    void handleHeightChanged();
 private:
     QSGNode* m_pRootNode;
     QList<QPointF> m_lstOnePgaeData;//始终只展示一屏的数据
