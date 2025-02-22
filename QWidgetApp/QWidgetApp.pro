@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui  network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,13 +15,16 @@ DEFINES += \
 
 INCLUDEPATH += \
         $${PWD}/../3rdParty/spdlog/x64/include \
+        $${PWD}/../3rdParty/qBreakpad/include \
         #$${PWD}/../3rdParty/fmt/x64/include \
 
 
 LIBS  += \
         -L$${PWD}/../3rdParty/spdlog/x64/lib\
+        -L$${PWD}/../3rdParty/qBreakpad/lib/release_x64 \
         #-L$${PWD}/../3rdParty/fmt/x64/lib\
         -lspdlog    \
+        -llibqBreakpad
         #-lfmt
 
 SOURCES += \
@@ -39,6 +42,11 @@ HEADERS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+# QMAKE_CFLAGS += /utf-8
+# QMAKE_CXXFLAGS += /utf-8
+QMAKE_CXXFLAGS_RELEASE = $$QMAKE_CFLAGS_RELEASE_WITH_DEBUGINFO
+QMAKE_LFLAGS_RELEASE = $$QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO
 
 
 DESTDIR = $${PWD}/../bin
