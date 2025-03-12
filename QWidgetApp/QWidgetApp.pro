@@ -1,4 +1,4 @@
-QT       += core gui  network
+QT       += core gui  network printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,11 +30,17 @@ LIBS  += \
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    mgr/Spdlogmanager.cpp
+    mgr/Spdlogmanager.cpp \
+    plot/MyPlotArea.cpp \
+    plot/QCustomPlot/qcustomplot.cpp \
+    plot/TestPlotPanel.cpp
 
 HEADERS += \
     mainwindow.h \
-    mgr/Spdlogmanager.h
+    mgr/Spdlogmanager.h \
+    plot/MyPlotArea.h \
+    plot/QCustomPlot/qcustomplot.h \
+    plot/TestPlotPanel.h
 
 
 

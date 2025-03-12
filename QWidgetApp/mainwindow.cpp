@@ -7,7 +7,7 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include "mgr/Spdlogmanager.h"
-
+#include "plot/TestPlotPanel.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,17 +20,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     QPushButton* m_pBtnLoadPlugin = new QPushButton("加载插件", m_pCentralWidget);
     QPushButton* m_pBtnUnLoadPlugin = new QPushButton("卸载插件", m_pCentralWidget);
-
+    QPushButton* m_pBtnPlot = new QPushButton("Plot", m_pCentralWidget);
     QVBoxLayout* pFrameLayout = new QVBoxLayout(m_pCentralWidget);
     QHBoxLayout* pBtnGrpLayout = new QHBoxLayout();
     pBtnGrpLayout->addWidget(m_pBtnLoadPlugin);
     pBtnGrpLayout->addWidget(m_pBtnUnLoadPlugin);
+    pBtnGrpLayout->addWidget(m_pBtnPlot);
     pBtnGrpLayout->addStretch();
 
     pFrameLayout->addLayout(pBtnGrpLayout);
     pFrameLayout->addStretch();
     connect(m_pBtnLoadPlugin, &QPushButton::clicked, this, &MainWindow::onLoadPluginBtnclicked);
     connect(m_pBtnUnLoadPlugin, &QPushButton::clicked, this, &MainWindow::onUnloadPluginBtnclicked);
+    connect(m_pBtnPlot, &QPushButton::clicked, this, &MainWindow::handlePlotBtnClicked);
 }
 
 MainWindow::~MainWindow()
@@ -84,6 +86,12 @@ void MainWindow::onUnloadPluginBtnclicked()
     {
         qDebug()<<"unload dll failure!"<<m_pluginLoader.errorString();
     }
+}
+
+void MainWindow::handlePlotBtnClicked()
+{
+    TestPlotPanel panel(this);
+    panel.exec();
 }
 
 void MainWindow::initLogMgrModule()

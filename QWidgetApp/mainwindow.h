@@ -25,7 +25,8 @@ private slots:
     void onLoadPluginBtnclicked();
     //卸载插件
     void onUnloadPluginBtnclicked();
-
+    //
+    void handlePlotBtnClicked();
 private:
     void initLogMgrModule();
 private:
